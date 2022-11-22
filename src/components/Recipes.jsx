@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Routes, Route, Link, Outlet } from "react-router-dom";
 
 function Recipes({ randomRecipe }) {
   const displayRecipe = Array.from(randomRecipe);
@@ -10,7 +11,9 @@ function Recipes({ randomRecipe }) {
       {displayRecipe.map((ele, i) => (
         <div key={Math.random()}>
           <h2>{ele.title}</h2>
-          <img src={ele.image} />
+          <Link to={`/recipe/${ele.id}`}>
+            <img src={ele.image} />
+          </Link>
         </div>
       ))}
 

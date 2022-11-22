@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Routes, Route, Link, Outlet } from "react-router-dom";
 
 function Form({ handleSubmit }) {
   return (
@@ -13,6 +14,7 @@ function Form({ handleSubmit }) {
         />
         <button>Search for Recipes</button>
       </form>
+      <Outlet />
     </div>
   );
 }

@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Form from "./components/Form";
 import Recipes from "./components/Recipes";
+import Recipe from "./components/Recipe";
+import Favorites from "./components/Favorites";
+// import Homepage from "./pages/Homepage";
 
 function App() {
   const [randomRecipe, setRandomRecipe] = useState("");
-  // const [favGif, setFavGif] = useState("");
+  // const [favRecipe, setFavRecipe] = useState("");
+  const [favs, setFavs] = useState([]);
 
+  const addFav = (recipe) => setFavs([...favs, recipe]);
+
+  const delFav = (recipe) => setFavs([]);
   //* 2 parameters
   //* 1st - callback
   //* 2nd - array of depencencies -> when dependecy change -> useEffect runs again
@@ -102,8 +110,22 @@ function App() {
     <>
       <div className="App">
         <h1>Meal Planner</h1>
-        <Form handleSubmit={handleSubmit} />
-        <Recipes randomRecipe={randomRecipe} />
+
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Form handleSubmit={handleSubmit} />}>
+              <Route index element={<Recipes randomRecipe={randomRecipe} />} />
+            </Route>
+
+            <Route path="/recipe/:code" element={<Recipe addFav={addFav} />} />
+            {/* <Route path="/about" element={<About />} /> */}
+            <Route
+              path="/favs"
+              element={<Favorites favs={favs} delFav={delFav} />}
+            />
+            <Route path="*" element={<p>Nothing here!</p>} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </>
   );
