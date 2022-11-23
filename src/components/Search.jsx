@@ -8,6 +8,7 @@ function SearchCard({ addFav, favs }) {
   const [cards, setCards] = useState([]);
   const [status, setStatus] = useState("idle");
   const [searchParams, setSearchParams] = useSearchParams();
+  import Navbar from "./Navbar";
 
   const types = searchParams.get("types");
   useEffect(() => {

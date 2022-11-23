@@ -5,6 +5,7 @@ import Form from "./components/Form";
 import Recipes from "./components/Recipes";
 import Recipe from "./components/Recipe";
 import Favorites from "./components/Favorites";
+import Navbar from "./components/Navbar";
 // import Homepage from "./pages/Homepage";
 
 function App() {
@@ -12,9 +13,18 @@ function App() {
   // const [favRecipe, setFavRecipe] = useState("");
   const [favs, setFavs] = useState([]);
 
-  const addFav = (recipe) => setFavs([...favs, recipe]);
+  const addFav = (recipe) => {
+    setFavs([...favs, recipe]);
+    console.log(favs);
+  };
 
-  const delFav = (recipe) => setFavs([]);
+  const delFav = (i) => {
+    favs.splice(i, 1);
+    console.log(favs);
+    const newFavs = [...favs];
+    setFavs(newFavs);
+  };
+
   //* 2 parameters
   //* 1st - callback
   //* 2nd - array of depencencies -> when dependecy change -> useEffect runs again
@@ -26,18 +36,20 @@ function App() {
 
     // Async await, newer, more used methods
     const fetchRandomReceipe = async () => {
-      const options = {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key":
-            "e0d1c6aec2mshb17d954bde69ccbp16cf43jsnf90c9c61420e",
-          "X-RapidAPI-Host":
-            "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        },
-      };
+      // const options = {
+      //   method: "GET",
+      //   headers: {
+      //     "X-RapidAPI-Key":
+      //       "e0d1c6aec2mshb17d954bde69ccbp16cf43jsnf90c9c61420e",
+      //     "X-RapidAPI-Host":
+      //       "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      //   },
+      // };
 
-      const recipeSrc = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1`;
-      const response = await fetch(recipeSrc, options, { signal });
+      // const recipeSrc = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1`;
+      // const response = await fetch(recipeSrc, options, { signal });
+      const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=ea8e44bfe231454b9aa2cccc475fbd2f&number=1`;
+      const response = await fetch(recipeSrc, { signal });
       const data = await response.json();
       // setName(data.results[0].name.first);
       // setPicture(data.results[0].picture.large);
@@ -62,43 +74,46 @@ function App() {
 
     if (event.target.elements.name.value) {
       console.log(event.target.elements.name.value);
-      const options = {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key":
-            "e0d1c6aec2mshb17d954bde69ccbp16cf43jsnf90c9c61420e",
-          "X-RapidAPI-Host":
-            "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        },
-      };
+      // const options = {
+      //   method: "GET",
+      //   headers: {
+      //     "X-RapidAPI-Key":
+      //       "e0d1c6aec2mshb17d954bde69ccbp16cf43jsnf90c9c61420e",
+      //     "X-RapidAPI-Host":
+      //       "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      //   },
+      // };
 
-      const recipeSrc = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${event.target.elements.name.value}&ignorePantry=true&ranking=1&number=3`;
-      const response = await fetch(recipeSrc, options);
+      // const recipeSrc = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${event.target.elements.name.value}&ignorePantry=true&ranking=1&number=3`;
+      // const response = await fetch(recipeSrc, options);
+      const recipeSrc = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=ea8e44bfe231454b9aa2cccc475fbd2f&ingredients=${event.target.elements.name.value}&ignorePantry=true&ranking=1&number=3`;
+      const response = await fetch(recipeSrc);
       const data = await response.json();
       console.log(data);
 
       setRandomRecipe(data);
     } else {
-      const options = {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key":
-            "e0d1c6aec2mshb17d954bde69ccbp16cf43jsnf90c9c61420e",
-          "X-RapidAPI-Host":
-            "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        },
-      };
-      const recipeSrc = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1`;
-      const response = await fetch(recipeSrc, options);
+      // const options = {
+      //   method: "GET",
+      //   headers: {
+      //     "X-RapidAPI-Key":
+      //       "e0d1c6aec2mshb17d954bde69ccbp16cf43jsnf90c9c61420e",
+      //     "X-RapidAPI-Host":
+      //       "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      //   },
+      // };
+
+      // const recipeSrc = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1`;
+      // const response = await fetch(recipeSrc, options);
+      const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=ea8e44bfe231454b9aa2cccc475fbd2f&number=1`;
+      const response = await fetch(recipeSrc);
       const data = await response.json();
-      // setName(data.results[0].name.first);
-      // setPicture(data.results[0].picture.large);
 
       setRandomRecipe([
         {
           id: `${data?.recipes[0].id}`,
           title: `${data?.recipes[0].title}`,
-          // value: "https://spoonacular.com/recipeImages/632572-556x370.jpg",
+
           image: `${data?.recipes[0].image}`,
           summary: `${data?.recipes[0].summary}`,
         },
@@ -109,8 +124,6 @@ function App() {
   return (
     <>
       <div className="App">
-        <h1>Meal Planner</h1>
-
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Form handleSubmit={handleSubmit} />}>
@@ -118,9 +131,9 @@ function App() {
             </Route>
 
             <Route path="/recipe/:code" element={<Recipe addFav={addFav} />} />
-            {/* <Route path="/about" element={<About />} /> */}
+
             <Route
-              path="/favs"
+              path="/favorites"
               element={<Favorites favs={favs} delFav={delFav} />}
             />
             <Route path="*" element={<p>Nothing here!</p>} />
