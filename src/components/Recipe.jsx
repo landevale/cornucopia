@@ -3,8 +3,9 @@ import { useEffect, useState, useRef } from "react";
 import Navbar from "./Navbar";
 import servings from "../assets/servings.png";
 import timeLeft from "../assets/time-left.png";
+import Switch from "./Switch";
 
-function Recipe({ addFav }) {
+function Recipe({ addFav, API_KEY }) {
   const [recipe, setRecipe] = useState({});
   const { code } = useParams();
   const navigate = useNavigate();
@@ -39,7 +40,8 @@ function Recipe({ addFav }) {
         // const recipeSrc = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${code}/information`;
         // const response = await fetch(recipeSrc, options);
 
-        const recipeSrc = `https://api.spoonacular.com/recipes/${code}/information?apiKey=ea8e44bfe231454b9aa2cccc475fbd2f&includeNutrition=false`;
+        // const recipeSrc = `https://api.spoonacular.com/recipes/${code}/information?apiKey=ea8e44bfe231454b9aa2cccc475fbd2f&includeNutrition=false`;
+        const recipeSrc = `https://api.spoonacular.com/recipes/${code}/information?apiKey=${API_KEY}&includeNutrition=false`;
         const response = await fetch(recipeSrc);
         const data = await response.json();
         setStatus("done");
@@ -66,14 +68,14 @@ function Recipe({ addFav }) {
   return (
     <>
       <Navbar />
-      <main className="px-3">
+      <main className="px-5">
         <h2>{recipe.title}</h2>
         <button onClick={scrollDown}>Jump to Recipe</button>
         <br />
         {/* <p>{recipe.summary}</p> */}
         <section dangerouslySetInnerHTML={{ __html: recipe.summary }}></section>
         <img src={recipe.image} />
-        <div id="recipeFactsDiv">
+        <div className="inline-block" id="recipeFactsDiv">
           <h4>Recipe Facts:</h4>
           <img style={{ maxWidth: "3%", height: "auto" }} src={timeLeft} />
           <p>Ready in {recipe.readyInMinutes} minutes</p>
@@ -83,6 +85,7 @@ function Recipe({ addFav }) {
         <div className="ingredientsDiv" ref={recipeSection}>
           <ul style={{ listStyleType: "none" }}>
             <h4>Ingredients:</h4>
+            <Switch />
             {recipe?.extendedIngredients?.map((item) => (
               <li key={Math.random()}>
                 {item?.amount} {item?.unit} - {item?.name}

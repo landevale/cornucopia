@@ -6,7 +6,7 @@ function Form({ handleSubmit }) {
   return (
     <>
       <Navbar />
-      <main className="px-3">
+      <main className="px-5">
         <div className="Form">
           <form onSubmit={handleSubmit} className="w-full max-w-sm">
             <div className="flex items-center border-b border-teal-500 py-2">

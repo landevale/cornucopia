@@ -10,6 +10,9 @@ import ErrorPage from "./components/ErrorPage";
 // import Homepage from "./pages/Homepage";
 
 function App() {
+  const API_KEY = "1222da339511442a833d2dcfd482ca15";
+  // const API_KEY = "ea8e44bfe231454b9aa2cccc475fbd2f";
+
   const [randomRecipe, setRandomRecipe] = useState("");
   // const [favRecipe, setFavRecipe] = useState("");
   const [favs, setFavs] = useState([]);
@@ -37,23 +40,9 @@ function App() {
 
     // Async await, newer, more used methods
     const fetchRandomReceipe = async () => {
-      // const options = {
-      //   method: "GET",
-      //   headers: {
-      //     "X-RapidAPI-Key":
-      //       "e0d1c6aec2mshb17d954bde69ccbp16cf43jsnf90c9c61420e",
-      //     "X-RapidAPI-Host":
-      //       "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      //   },
-      // };
-
-      // const recipeSrc = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1`;
-      // const response = await fetch(recipeSrc, options, { signal });
-      const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=ea8e44bfe231454b9aa2cccc475fbd2f&number=1`;
+      const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=1`;
       const response = await fetch(recipeSrc, { signal });
       const data = await response.json();
-      // setName(data.results[0].name.first);
-      // setPicture(data.results[0].picture.large);
 
       setRandomRecipe([
         {
@@ -75,38 +64,15 @@ function App() {
 
     if (event.target.elements.name.value) {
       console.log(event.target.elements.name.value);
-      // const options = {
-      //   method: "GET",
-      //   headers: {
-      //     "X-RapidAPI-Key":
-      //       "e0d1c6aec2mshb17d954bde69ccbp16cf43jsnf90c9c61420e",
-      //     "X-RapidAPI-Host":
-      //       "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      //   },
-      // };
 
-      // const recipeSrc = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${event.target.elements.name.value}&ignorePantry=true&ranking=1&number=3`;
-      // const response = await fetch(recipeSrc, options);
-      const recipeSrc = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=ea8e44bfe231454b9aa2cccc475fbd2f&ingredients=${event.target.elements.name.value}&ignorePantry=true&ranking=1&number=3`;
+      const recipeSrc = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&ingredients=${event.target.elements.name.value}&ignorePantry=true&ranking=1&number=3`;
       const response = await fetch(recipeSrc);
       const data = await response.json();
       console.log(data);
 
       setRandomRecipe(data);
     } else {
-      // const options = {
-      //   method: "GET",
-      //   headers: {
-      //     "X-RapidAPI-Key":
-      //       "e0d1c6aec2mshb17d954bde69ccbp16cf43jsnf90c9c61420e",
-      //     "X-RapidAPI-Host":
-      //       "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-      //   },
-      // };
-
-      // const recipeSrc = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1`;
-      // const response = await fetch(recipeSrc, options);
-      const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=ea8e44bfe231454b9aa2cccc475fbd2f&number=1`;
+      const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=1`;
       const response = await fetch(recipeSrc);
       const data = await response.json();
 
@@ -131,7 +97,10 @@ function App() {
               <Route index element={<Recipes randomRecipe={randomRecipe} />} />
             </Route>
 
-            <Route path="/recipe/:code" element={<Recipe addFav={addFav} />} />
+            <Route
+              path="/recipe/:code"
+              element={<Recipe addFav={addFav} API_KEY={API_KEY} />}
+            />
 
             <Route
               path="/favorites"
