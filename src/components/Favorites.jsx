@@ -5,7 +5,7 @@ function Favorites({ favs, delFav }) {
   return (
     <>
       <Navbar />
-      <h2>Favs</h2>
+      <h2>Favorites</h2>
       <ul>
         {favs.map((ele, i) => (
           <li key={Math.random()}>

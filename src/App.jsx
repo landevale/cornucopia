@@ -6,6 +6,7 @@ import Recipes from "./components/Recipes";
 import Recipe from "./components/Recipe";
 import Favorites from "./components/Favorites";
 import Navbar from "./components/Navbar";
+import ErrorPage from "./components/ErrorPage";
 // import Homepage from "./pages/Homepage";
 
 function App() {
@@ -136,7 +137,7 @@ function App() {
               path="/favorites"
               element={<Favorites favs={favs} delFav={delFav} />}
             />
-            <Route path="*" element={<p>Nothing here!</p>} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
       </div>
