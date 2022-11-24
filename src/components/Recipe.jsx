@@ -59,10 +59,15 @@ function Recipe({ addFav }) {
       <main>
         <h2>{recipe.title}</h2>
         <img src={recipe.image} />
-        <p>{recipe.servings} Servings</p>
-
-        <p>Ready in {recipe.readyInMinutes} minutes</p>
-        <ul>
+        <div id="recipeFactsDiv">
+          <h4>Recipe Facts:</h4>
+          <img src="src/assets/servings.png" />
+          <p>{recipe.servings} Servings</p>
+          <img src="src/assets/time-left.png" />
+          <p>Ready in {recipe.readyInMinutes} minutes</p>
+        </div>
+        <ul style={{ listStyleType: "none" }}>
+          <h4>Ingredients:</h4>
           {recipe?.extendedIngredients?.map((item) => (
             <li key={Math.random()}>
               {item?.amount} {item?.unit} - {item?.name}
@@ -70,7 +75,8 @@ function Recipe({ addFav }) {
           ))}
         </ul>
         <p>
-          Recipe: {status === "loading" ? <progress /> : recipe.instructions}
+          <h4>Recipe:</h4>{" "}
+          {status === "loading" ? <progress /> : recipe.instructions}
           {status === "error" ? "Error" : null}
         </p>
         <button onClick={handleFav(recipe)}>Add to Favorites</button>

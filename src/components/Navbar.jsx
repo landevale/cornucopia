@@ -11,7 +11,6 @@ function Navbar() {
       <h1>Cornucopia</h1>
       <h3>Meal Planner</h3>
       <br />
-      <br />
     </>
   );
 }
