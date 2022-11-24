@@ -66,10 +66,12 @@ function Recipe({ addFav }) {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="px-3">
         <h2>{recipe.title}</h2>
         <button onClick={scrollDown}>Jump to Recipe</button>
         <br />
+        {/* <p>{recipe.summary}</p> */}
+        <section dangerouslySetInnerHTML={{ __html: recipe.summary }}></section>
         <img src={recipe.image} />
         <div id="recipeFactsDiv">
           <h4>Recipe Facts:</h4>
@@ -89,11 +91,17 @@ function Recipe({ addFav }) {
           </ul>
         </div>
         <div className="instructionsDiv">
-          <p>
-            <h4>Recipe:</h4>{" "}
-            {status === "loading" ? <progress /> : recipe.instructions}
+          <h4>Recipe:</h4>{" "}
+          <div>
+            {status === "loading" ? (
+              <progress />
+            ) : (
+              <section
+                dangerouslySetInnerHTML={{ __html: recipe.instructions }}
+              ></section>
+            )}
             {status === "error" ? "Error" : null}
-          </p>
+          </div>
         </div>
         <button onClick={handleFav(recipe)}>Add to Favorites</button>
         {/* <button onClick={handleClickFavs}>Favorites</button>

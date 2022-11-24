@@ -6,24 +6,28 @@ function Favorites({ favs, delFav }) {
     return (
       <>
         <Navbar />
-        <h2>Favorites</h2>
-        <p>No Cards here</p>
+        <main className="px-3">
+          <h2>Favorites</h2>
+          <p>No Cards here</p>
+        </main>
       </>
     );
   } else {
     return (
       <>
         <Navbar />
-        <h2>Favorites</h2>
-        <ul>
-          {favs.map((ele, i) => (
-            <li key={Math.random()}>
-              <Link to={`/recipe/${ele.id}`}>{ele?.title}</Link>
-              {"        "}
-              <button onClick={() => delFav(i)}>Remove</button>
-            </li>
-          ))}
-        </ul>
+        <main className="px-3">
+          <h2>Favorites</h2>
+          <ul>
+            {favs.map((ele, i) => (
+              <li key={Math.random()}>
+                <Link to={`/recipe/${ele.id}`}>{ele?.title}</Link>
+                {"        "}
+                <button onClick={() => delFav(i)}>Remove</button>
+              </li>
+            ))}
+          </ul>
+        </main>
       </>
     );
   }

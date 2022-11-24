@@ -25,4 +25,7 @@
     @apply px-2;
     @apply rounded;
   }
+  /* div {
+    @apply px-0;
+  } */
 }
