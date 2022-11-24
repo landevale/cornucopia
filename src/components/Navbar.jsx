@@ -3,13 +3,23 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <>
-      <nav>
-        <Link to="/">Home</Link>
-        {"    "}
-        <Link to="/favorites">Favorites</Link>
-      </nav>
-      <h1>Cornucopia</h1>
-      <h3>Meal Planner</h3>
+      <div>
+        <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+          <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+            <div className="text-sm lg:flex-grow">
+              <h1 className="text-white">Cornucopia</h1>
+              <h3 className="text-white">Meal Planner</h3>
+              <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <Link to="/">Home</Link>
+              </a>
+              {"    "}
+              <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                <Link to="/favorites">Favorites</Link>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
       <br />
     </>
   );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
 import Form from "./components/Form";
 import Recipes from "./components/Recipes";
 import Recipe from "./components/Recipe";

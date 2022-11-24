@@ -1,12 +1,22 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Navbar from "./Navbar";
+import servings from "../assets/servings.png";
+import timeLeft from "../assets/time-left.png";
 
 function Recipe({ addFav }) {
   const [recipe, setRecipe] = useState({});
   const { code } = useParams();
   const navigate = useNavigate();
   const [status, setStatus] = useState("Idle");
+  const recipeSection = useRef(null);
+
+  const scrollDown = () => {
+    window.scrollTo({
+      top: recipeSection.current.offsetTop,
+      behavior: "smooth",
+    });
+  };
 
   const handleFav = (recipe) => () => {
     addFav(recipe);
@@ -58,27 +68,33 @@ function Recipe({ addFav }) {
       <Navbar />
       <main>
         <h2>{recipe.title}</h2>
+        <button onClick={scrollDown}>Jump to Recipe</button>
+        <br />
         <img src={recipe.image} />
         <div id="recipeFactsDiv">
           <h4>Recipe Facts:</h4>
-          <img src="src/assets/servings.png" />
-          <p>{recipe.servings} Servings</p>
-          <img src="src/assets/time-left.png" />
+          <img style={{ maxWidth: "3%", height: "auto" }} src={timeLeft} />
           <p>Ready in {recipe.readyInMinutes} minutes</p>
+          <img style={{ maxWidth: "3%", height: "auto" }} src={servings} />
+          <p>{recipe.servings} Servings</p>
         </div>
-        <ul style={{ listStyleType: "none" }}>
-          <h4>Ingredients:</h4>
-          {recipe?.extendedIngredients?.map((item) => (
-            <li key={Math.random()}>
-              {item?.amount} {item?.unit} - {item?.name}
-            </li>
-          ))}
-        </ul>
-        <p>
-          <h4>Recipe:</h4>{" "}
-          {status === "loading" ? <progress /> : recipe.instructions}
-          {status === "error" ? "Error" : null}
-        </p>
+        <div className="ingredientsDiv" ref={recipeSection}>
+          <ul style={{ listStyleType: "none" }}>
+            <h4>Ingredients:</h4>
+            {recipe?.extendedIngredients?.map((item) => (
+              <li key={Math.random()}>
+                {item?.amount} {item?.unit} - {item?.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="instructionsDiv">
+          <p>
+            <h4>Recipe:</h4>{" "}
+            {status === "loading" ? <progress /> : recipe.instructions}
+            {status === "error" ? "Error" : null}
+          </p>
+        </div>
         <button onClick={handleFav(recipe)}>Add to Favorites</button>
         {/* <button onClick={handleClickFavs}>Favorites</button>
         <button onClick={handleClickHome}>Home</button> */}
