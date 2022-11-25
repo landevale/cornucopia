@@ -5,7 +5,7 @@ import servings from "../assets/servings.png";
 import timeLeft from "../assets/time-left.png";
 import Switch from "./Switch";
 
-function Recipe({ addFav, API_KEY }) {
+function Recipe({ favs, addFav, API_KEY }) {
   const [recipe, setRecipe] = useState({});
   const { code } = useParams();
   const navigate = useNavigate();
@@ -56,15 +56,22 @@ function Recipe({ addFav, API_KEY }) {
     </li>
   ));
 
+  const inFavs = favs.findIndex((fav) => recipe.id === fav.id) === -1;
+  console.log(inFavs);
+  const buttonText = inFavs ? "Add to Favorties" : "Favorited";
+
   return (
     <>
       <Navbar />
       <main className="px-5">
         <h2>{recipe.title}</h2>
+        <br />
         <button onClick={scrollDown}>Jump to Recipe</button>
+        <br />
         <br />
 
         <section dangerouslySetInnerHTML={{ __html: recipe.summary }}></section>
+        <br />
         <img src={recipe.image} />
         <br />
         <div className="inline-block" id="recipeFactsDiv">
@@ -104,7 +111,8 @@ function Recipe({ addFav, API_KEY }) {
             {status === "error" ? "Error" : null}
           </div>
         </div>
-        <button onClick={handleFav(recipe)}>Add to Favorites</button>
+
+        <button onClick={handleFav(recipe)}>{buttonText}</button>
       </main>
     </>
   );

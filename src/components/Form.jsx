@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Routes, Route, Link, Outlet } from "react-router-dom";
+import { Routes, Route, Link, Outlet, useSearchParams } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function Form({ handleSubmit }) {
