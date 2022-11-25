@@ -23,6 +23,7 @@ function Form({ handleSubmit }) {
               </button>
             </div>
           </form>
+          <br />
           <Outlet />
         </div>
       </main>

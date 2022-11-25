@@ -1,6 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=GFS+Neohellenic:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+@font-face {
+  font-family: "GFS Neohellenic";
+  src: url("https://fonts.googleapis.com/css2?family=GFS+Neohellenic:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+}
 
 @layer base {
   h1 {
@@ -25,7 +31,7 @@
     @apply px-2;
     @apply rounded;
   }
-  /* div {
-    @apply px-0;
-  } */
+  main {
+    @apply px-5;
+  }
 }

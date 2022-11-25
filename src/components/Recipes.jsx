@@ -15,6 +15,7 @@ function Recipes({ randomRecipe }) {
           <Link to={`/recipe/${ele.id}`}>
             <img src={ele.image} />
           </Link>
+          <br />
         </div>
       ))}
 

@@ -16,7 +16,7 @@ function Favorites({ favs, delFav }) {
     return (
       <>
         <Navbar />
-        <main className="px-3">
+        <main className="px-5">
           <h2>Favorites</h2>
           <ul>
             {favs.map((ele, i) => (
