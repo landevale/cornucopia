@@ -8,7 +8,7 @@ function Favorites({ favs, delFav }) {
         <Navbar />
         <main className="px-5">
           <h2>Favorites</h2>
-          <p>No Cards here</p>
+          <p>No saved recipes</p>
         </main>
       </>
     );
