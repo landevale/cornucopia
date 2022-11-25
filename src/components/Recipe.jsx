@@ -23,24 +23,12 @@ function Recipe({ addFav, API_KEY }) {
     addFav(recipe);
   };
 
+  const [toggle, setToggle] = useState(true);
+
   useEffect(() => {
     // Async await, newer, more used methods
     const fetchRecipe = async () => {
       try {
-        // const options = {
-        //   method: "GET",
-        //   headers: {
-        //     "X-RapidAPI-Key":
-        //       "e0d1c6aec2mshb17d954bde69ccbp16cf43jsnf90c9c61420e",
-        //     "X-RapidAPI-Host":
-        //       "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        //   },
-        // };
-
-        // const recipeSrc = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${code}/information`;
-        // const response = await fetch(recipeSrc, options);
-
-        // const recipeSrc = `https://api.spoonacular.com/recipes/${code}/information?apiKey=ea8e44bfe231454b9aa2cccc475fbd2f&includeNutrition=false`;
         const recipeSrc = `https://api.spoonacular.com/recipes/${code}/information?apiKey=${API_KEY}&includeNutrition=false`;
         const response = await fetch(recipeSrc);
         const data = await response.json();
@@ -53,17 +41,20 @@ function Recipe({ addFav, API_KEY }) {
     };
     setStatus("loading");
     fetchRecipe();
-  }, [code]);
+  }, [code, API_KEY]);
 
-  // const handleClickHome = () => {
-  //   console.log("click");
-  //   navigate("/");
-  // };
+  const usUnit = recipe?.extendedIngredients?.map((item) => (
+    <li key={Math.random()}>
+      {item?.amount} {item?.unit} - {item?.name}
+    </li>
+  ));
 
-  // const handleClickFavs = () => {
-  //   console.log("click");
-  //   navigate("/favorites");
-  // };
+  const metricUnit = recipe?.extendedIngredients?.map((item) => (
+    <li key={Math.random()}>
+      {item?.measures.metric.amount} {item?.measures.metric.unitShort} -{" "}
+      {item?.name}
+    </li>
+  ));
 
   return (
     <>
@@ -72,9 +63,10 @@ function Recipe({ addFav, API_KEY }) {
         <h2>{recipe.title}</h2>
         <button onClick={scrollDown}>Jump to Recipe</button>
         <br />
-        {/* <p>{recipe.summary}</p> */}
+
         <section dangerouslySetInnerHTML={{ __html: recipe.summary }}></section>
         <img src={recipe.image} />
+        <br />
         <div className="inline-block" id="recipeFactsDiv">
           <h4>Recipe Facts:</h4>
           <img style={{ maxWidth: "3%", height: "auto" }} src={timeLeft} />
@@ -82,17 +74,23 @@ function Recipe({ addFav, API_KEY }) {
           <img style={{ maxWidth: "3%", height: "auto" }} src={servings} />
           <p>{recipe.servings} Servings</p>
         </div>
+        <br />
+        <br />
+
         <div className="ingredientsDiv" ref={recipeSection}>
           <ul style={{ listStyleType: "none" }}>
             <h4>Ingredients:</h4>
-            <Switch />
-            {recipe?.extendedIngredients?.map((item) => (
-              <li key={Math.random()}>
-                {item?.amount} {item?.unit} - {item?.name}
-              </li>
-            ))}
+            <div className="inline-flex">
+              <Switch toggle={toggle} setToggle={setToggle} />
+              {"       "}
+              Click to Toggle US/Metric units
+            </div>
+            {/* Ingredient display toggle US : Metric */}
+            {toggle === true ? usUnit : metricUnit}
           </ul>
         </div>
+        <br />
+        <br />
         <div className="instructionsDiv">
           <h4>Recipe:</h4>{" "}
           <div>
@@ -107,8 +105,6 @@ function Recipe({ addFav, API_KEY }) {
           </div>
         </div>
         <button onClick={handleFav(recipe)}>Add to Favorites</button>
-        {/* <button onClick={handleClickFavs}>Favorites</button>
-        <button onClick={handleClickHome}>Home</button> */}
       </main>
     </>
   );

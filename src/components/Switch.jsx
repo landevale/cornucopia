@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-function Switch() {
-  const [toggle, setToggle] = useState(true);
+function Switch({ toggle, setToggle }) {
   const toggleClass = " transform translate-x-5";
   return (
     <>
-      {/* <div className="flex flex-col justify-center h-screen items-center "> */}
       {/*   Switch Container */}
 
       <div
@@ -22,7 +20,6 @@ function Switch() {
           }
         ></div>
       </div>
-      {/* </div> */}
     </>
   );
 }
