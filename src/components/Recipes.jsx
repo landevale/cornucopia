@@ -18,8 +18,6 @@ function Recipes({ randomRecipe }) {
           <br />
         </div>
       ))}
-
-      {/* <p>{randomRecipe.summary}</p> */}
     </div>
   );
 }

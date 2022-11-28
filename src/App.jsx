@@ -99,7 +99,14 @@ function App() {
 
             <Route
               path="/recipe/:code"
-              element={<Recipe favs={favs} addFav={addFav} API_KEY={API_KEY} />}
+              element={
+                <Recipe
+                  favs={favs}
+                  addFav={addFav}
+                  delFav={delFav}
+                  API_KEY={API_KEY}
+                />
+              }
             />
 
             <Route

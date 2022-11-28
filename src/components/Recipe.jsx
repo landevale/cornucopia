@@ -5,7 +5,7 @@ import servings from "../assets/servings.png";
 import timeLeft from "../assets/time-left.png";
 import Switch from "./Switch";
 
-function Recipe({ favs, addFav, API_KEY }) {
+function Recipe({ favs, addFav, delFav, API_KEY }) {
   const [recipe, setRecipe] = useState({});
   const { code } = useParams();
   const navigate = useNavigate();
@@ -17,10 +17,6 @@ function Recipe({ favs, addFav, API_KEY }) {
       top: recipeSection.current.offsetTop,
       behavior: "smooth",
     });
-  };
-
-  const handleFav = (recipe) => () => {
-    addFav(recipe);
   };
 
   const [toggle, setToggle] = useState(true);
@@ -58,7 +54,16 @@ function Recipe({ favs, addFav, API_KEY }) {
 
   const inFavs = favs.findIndex((fav) => recipe.id === fav.id) === -1;
   console.log(inFavs);
-  const buttonText = inFavs ? "Add to Favorties" : "Favorited";
+  const buttonText = inFavs ? "Add to Favorties" : "Remove from Favorites";
+
+  const handleFav = (recipe) => () => {
+    if (inFavs === false) {
+      const i = favs.findIndex((fav) => recipe.id === fav.id);
+      delFav(i);
+    } else {
+      addFav(recipe);
+    }
+  };
 
   return (
     <>
