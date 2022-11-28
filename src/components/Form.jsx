@@ -6,6 +6,7 @@ function Form({ handleSubmit }) {
   return (
     <>
       <Navbar />
+
       <main className="px-5">
         <div className="Form">
           <form onSubmit={handleSubmit} className="w-full max-w-sm">
@@ -19,7 +20,7 @@ function Form({ handleSubmit }) {
                 className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
               />
               <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
-                Search for Recipes
+                Search For Recipes
               </button>
             </div>
           </form>

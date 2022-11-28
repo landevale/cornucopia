@@ -14,13 +14,31 @@ function App() {
   // const API_KEY = "ea8e44bfe231454b9aa2cccc475fbd2f";
 
   const [randomRecipe, setRandomRecipe] = useState("");
-  // const [favRecipe, setFavRecipe] = useState("");
+
   const [favs, setFavs] = useState([]);
+  // () => {
+  //   // getting stored value
+  //   const saved = localStorage.getItem("favs");
+  //   const initialValue = JSON.parse(saved);
+  //   return initialValue || "[]";
+  // }
 
   const addFav = (recipe) => {
     setFavs([...favs, recipe]);
     console.log(favs);
   };
+
+  useEffect(() => {
+    const favs = JSON.parse(localStorage.getItem("favs"));
+    if (favs) {
+      setFavs(favs);
+    }
+  }, []);
+
+  useEffect(() => {
+    // storing input favs
+    localStorage.setItem("favs", JSON.stringify(favs));
+  }, [favs]);
 
   const delFav = (i) => {
     favs.splice(i, 1);

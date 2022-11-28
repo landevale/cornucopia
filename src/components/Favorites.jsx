@@ -20,7 +20,7 @@ function Favorites({ favs, delFav }) {
           <h2>Favorites</h2>
           <ul>
             {favs.map((ele, i) => (
-              <li key={Math.random()}>
+              <li key={i}>
                 <Link to={`/recipe/${ele.id}`}>{ele?.title}</Link>
                 {"        "}
                 <button onClick={() => delFav(i)}>Remove</button>

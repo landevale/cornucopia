@@ -8,7 +8,7 @@ import Switch from "./Switch";
 function Recipe({ favs, addFav, delFav, API_KEY }) {
   const [recipe, setRecipe] = useState({});
   const { code } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [status, setStatus] = useState("Idle");
   const recipeSection = useRef(null);
 
@@ -57,11 +57,11 @@ function Recipe({ favs, addFav, delFav, API_KEY }) {
   const buttonText = inFavs ? "Add to Favorties" : "Remove from Favorites";
 
   const handleFav = (recipe) => () => {
-    if (inFavs === false) {
+    if (inFavs) {
+      addFav(recipe);
+    } else {
       const i = favs.findIndex((fav) => recipe.id === fav.id);
       delFav(i);
-    } else {
-      addFav(recipe);
     }
   };
 
