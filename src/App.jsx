@@ -10,8 +10,8 @@ import ErrorPage from "./components/ErrorPage";
 // import Homepage from "./pages/Homepage";
 
 function App() {
-  // const API_KEY = "1222da339511442a833d2dcfd482ca15";
-  const API_KEY = "ea8e44bfe231454b9aa2cccc475fbd2f";
+  const API_KEY = "1222da339511442a833d2dcfd482ca15";
+  // const API_KEY = "ea8e44bfe231454b9aa2cccc475fbd2f";
 
   const intolerancesCheckboxes = {
     dairy: false,
