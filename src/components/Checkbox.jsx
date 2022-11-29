@@ -1,25 +1,43 @@
-function Checkbox({ toggle, setToggle }) {
-  const toggleClass = " transform translate-x-5";
+const Checkbox = ({ label, value, checkboxStates, setCheckboxStates }) => {
   return (
     <>
-      {/*   Switch Container */}
+      {Object.keys(checkboxStates).map((ele, i) => (
+        <label key={i}>
+          <input
+            type="checkbox"
+            checked={checkboxStates.ele}
+            onChange={() => {
+              console.log(ele);
+              console.log(checkboxStates[ele]);
 
-      <div
-        className="md:w-14 md:h-7 w-12 h-6 flex items-center bg-teal-500 rounded-full p-1 cursor-pointer"
-        onClick={() => {
-          setToggle(!toggle);
-        }}
-      >
-        {/* Switch */}
-        <div
-          className={
-            "bg-teal-700 md:w-6 md:h-6 h-5 w-5 rounded-full shadow-md transform duration-300 ease-in-out" +
-            (toggle ? null : toggleClass)
-          }
-        ></div>
-      </div>
+              setCheckboxStates({
+                ...checkboxStates,
+                [ele]: checkboxStates[ele] ? false : true,
+              });
+            }}
+          />
+          <span>{ele}</span>
+        </label>
+      ))}
+
+      {/* <label>
+        <input
+          type="checkbox"
+          checked={value}
+          onChange={() => {
+            console.log(label);
+            console.log(checkboxStates[label]);
+            // console.log(event.target.checked);
+            setCheckboxStates({
+              ...checkboxStates,
+              [label]: checkboxStates[label] ? false : true,
+            });
+          }}
+        />
+        <span>{label}</span>
+      </label> */}
     </>
   );
-}
+};
 
 export default Checkbox;

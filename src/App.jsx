@@ -13,6 +13,29 @@ function App() {
   const API_KEY = "1222da339511442a833d2dcfd482ca15";
   // const API_KEY = "ea8e44bfe231454b9aa2cccc475fbd2f";
 
+  const intolerancesCheckboxes = {
+    dairy: false,
+    peanut: false,
+    soy: false,
+    egg: false,
+    seafood: false,
+    sulfite: false,
+    gluten: false,
+    sesame: false,
+    treenut: false,
+    grain: false,
+    shellfish: false,
+    wheat: false,
+  };
+  const [checkboxStates, setCheckboxStates] = useState(intolerancesCheckboxes);
+  console.log(checkboxStates);
+  const intolerancesResult = Object.keys(checkboxStates).filter(
+    (k) => checkboxStates[k]
+  );
+  console.log(intolerancesResult);
+  const intolerancesStr = intolerancesResult.map((key) => `${key}`).join(", ");
+  console.log(intolerancesStr);
+
   const [randomRecipe, setRandomRecipe] = useState("");
 
   const [favs, setFavs] = useState([]);
@@ -109,7 +132,16 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Form handleSubmit={handleSubmit} />}>
+            <Route
+              path="/"
+              element={
+                <Form
+                  handleSubmit={handleSubmit}
+                  checkboxStates={checkboxStates}
+                  setCheckboxStates={setCheckboxStates}
+                />
+              }
+            >
               <Route index element={<Recipes randomRecipe={randomRecipe} />} />
             </Route>
 
