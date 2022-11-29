@@ -55,8 +55,6 @@ function App() {
   useEffect(() => {
     let controller = new AbortController();
     const signal = controller.signal;
-
-    // Async await, newer, more used methods
     const fetchRandomReceipe = async () => {
       const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=1`;
       const response = await fetch(recipeSrc, { signal });

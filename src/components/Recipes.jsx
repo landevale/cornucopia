@@ -7,7 +7,7 @@ function Recipes({ randomRecipe }) {
   console.log(displayRecipe);
   return (
     <>
-      <div className="Recipe">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
         {/*  */}
         {displayRecipe.map((ele, i) => (
           <div
@@ -15,7 +15,7 @@ function Recipes({ randomRecipe }) {
             className="max-w-sm max-h-sm rounded overflow-hidden shadow-lg m-3 inline-grid"
           >
             <Link to={`/recipe/${ele.id}`}>
-              <img className="w-full h-fit" src={ele.image} alt={ele.title} />
+              <img className="w-fit h-fit" src={ele.image} alt={ele.title} />
             </Link>
             <div className="px-6 py-4">
               <div className="font-bold text-xl mb-2">{ele.title}</div>

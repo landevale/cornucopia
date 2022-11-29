@@ -68,56 +68,75 @@ function Recipe({ favs, addFav, delFav, API_KEY }) {
   return (
     <>
       <Navbar />
-      <main className="px-5">
-        <h2>{recipe.title}</h2>
-        <br />
-        <button onClick={scrollDown}>Jump to Recipe</button>
-        <br />
-        <br />
+      <main className="px-5 space-y-4">
+        <div className="container mx-auto grid grid-rows-9 grid-flow-col gap-3 rounded">
+          <img
+            src={recipe.image}
+            className="row-span-5 col-span-5 self-center"
+          />
+          <h2 className="col-start-6 col-span-2 self-center p-3 max-w-xl">
+            {recipe.title}
+          </h2>
 
-        <section dangerouslySetInnerHTML={{ __html: recipe.summary }}></section>
-        <br />
-        <img src={recipe.image} />
-        <br />
-        <div className="inline-block" id="recipeFactsDiv">
-          <h4>Recipe Facts:</h4>
-          <img style={{ maxWidth: "3%", height: "auto" }} src={timeLeft} />
+          <section
+            dangerouslySetInnerHTML={{ __html: recipe.summary }}
+            className="row-span-2 col-span-2"
+          ></section>
+        </div>
+
+        <div className="container mx-auto">
+          <button onClick={scrollDown}>Jump to Recipe</button>
+        </div>
+
+        <div
+          className="container mx-auto max-w-md grid gap-3 sm:grid-cols-2 rounded overflow-hidden shadow-lg p-3"
+          id="recipeFactsDiv"
+        >
+          <h4 className="justify-center col-span-2">Recipe Facts:</h4>
+          <img
+            src={timeLeft}
+            style={{ maxWidth: "10%", height: "auto" }}
+            className="place-self-end"
+          />
           <p>Ready in {recipe.readyInMinutes} minutes</p>
-          <img style={{ maxWidth: "3%", height: "auto" }} src={servings} />
+          <img
+            src={servings}
+            style={{ maxWidth: "10%", height: "auto" }}
+            className="place-self-end"
+          />
           <p>{recipe.servings} Servings</p>
         </div>
-        <br />
-        <br />
 
-        <div className="ingredientsDiv" ref={recipeSection}>
+        <div
+          className="container mx-auto grid gap-3 rounded"
+          ref={recipeSection}
+        >
           <ul style={{ listStyleType: "none" }}>
             <h4>Ingredients:</h4>
-            <div className="inline-flex">
+            <div className="inline-flex m-3">
               <Switch toggle={toggle} setToggle={setToggle} />
-              {"       "}
+              {"            "}
               Click to Toggle US/Metric units
             </div>
             {/* Ingredient display toggle US : Metric */}
             {toggle === true ? usUnit : metricUnit}
           </ul>
         </div>
-        <br />
-        <br />
-        <div className="instructionsDiv">
-          <h4>Recipe:</h4>{" "}
-          <div>
-            {status === "loading" ? (
-              <progress />
-            ) : (
-              <section
-                dangerouslySetInnerHTML={{ __html: recipe.instructions }}
-              ></section>
-            )}
-            {status === "error" ? "Error" : null}
-          </div>
-        </div>
 
-        <button onClick={handleFav(recipe)}>{buttonText}</button>
+        <div className="container mx-auto grid gap-3 rounded">
+          <h4>Recipe:</h4>
+          {status === "loading" ? (
+            <progress />
+          ) : (
+            <section
+              dangerouslySetInnerHTML={{ __html: recipe.instructions }}
+            ></section>
+          )}
+          {status === "error" ? "Error" : null}
+        </div>
+        <div className="container mx-auto">
+          <button onClick={handleFav(recipe)}>{buttonText}</button>
+        </div>
       </main>
     </>
   );
