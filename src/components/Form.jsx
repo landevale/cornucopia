@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { Routes, Route, Link, Outlet, useSearchParams } from "react-router-dom";
 import Navbar from "./Navbar";
-import Checkbox from "./Checkbox";
+import Checkbox from "./CheckboxIntol";
 
-function Form({ handleSubmit, checkboxStates, setCheckboxStates }) {
+function Form({ handleSubmit, intolStates, setIntolStates }) {
   return (
     <>
       <Navbar />
@@ -12,8 +12,8 @@ function Form({ handleSubmit, checkboxStates, setCheckboxStates }) {
         <div className="Form">
           <form onSubmit={handleSubmit} className="w-full max-w-sm">
             <Checkbox
-              checkboxStates={checkboxStates}
-              setCheckboxStates={setCheckboxStates}
+              intolStates={intolStates}
+              setIntolStates={setIntolStates}
             />
 
             <div className="flex items-center border-b border-teal-500 py-2">

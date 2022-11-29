@@ -5,7 +5,6 @@ import Form from "./components/Form";
 import Recipes from "./components/Recipes";
 import Recipe from "./components/Recipe";
 import Favorites from "./components/Favorites";
-import Navbar from "./components/Navbar";
 import ErrorPage from "./components/ErrorPage";
 // import Homepage from "./pages/Homepage";
 
@@ -27,10 +26,10 @@ function App() {
     shellfish: false,
     wheat: false,
   };
-  const [checkboxStates, setCheckboxStates] = useState(intolerancesCheckboxes);
-  console.log(checkboxStates);
-  const intolerancesResult = Object.keys(checkboxStates).filter(
-    (k) => checkboxStates[k]
+  const [intolStates, setIntolStates] = useState(intolerancesCheckboxes);
+  console.log(intolStates);
+  const intolerancesResult = Object.keys(intolStates).filter(
+    (k) => intolStates[k]
   );
   console.log(intolerancesResult);
   const intolerancesStr = intolerancesResult.map((key) => `${key}`).join(", ");
@@ -39,12 +38,6 @@ function App() {
   const [randomRecipe, setRandomRecipe] = useState("");
 
   const [favs, setFavs] = useState([]);
-  // () => {
-  //   // getting stored value
-  //   const saved = localStorage.getItem("favs");
-  //   const initialValue = JSON.parse(saved);
-  //   return initialValue || "[]";
-  // }
 
   const addFav = (recipe) => {
     setFavs([...favs, recipe]);
@@ -138,8 +131,8 @@ function App() {
               element={
                 <Form
                   handleSubmit={handleSubmit}
-                  checkboxStates={checkboxStates}
-                  setCheckboxStates={setCheckboxStates}
+                  intolStates={intolStates}
+                  setIntolStates={setIntolStates}
                 />
               }
             >

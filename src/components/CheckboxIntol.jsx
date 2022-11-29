@@ -1,4 +1,4 @@
-const Checkbox = ({ label, value, checkboxStates, setCheckboxStates }) => {
+const Checkbox = ({ label, value, intolStates, setIntolStates }) => {
   const showDropdownOptions = (event) => {
     event.preventDefault();
     document.getElementById("options").classList.toggle("hidden");
@@ -42,21 +42,21 @@ const Checkbox = ({ label, value, checkboxStates, setCheckboxStates }) => {
           id="options"
           className="hidden w-48 py-2 mt-2 bg-white rounded-lg shadow-xl"
         >
-          {Object.keys(checkboxStates).map((ele, i) => (
+          {Object.keys(intolStates).map((ele, i) => (
             <label
               key={i}
               className="block px-4 py-2 text-gray-800 hover:bg-teal-500 hover:text-white"
             >
               <input
                 type="checkbox"
-                checked={checkboxStates.ele}
+                checked={intolStates.ele}
                 onChange={() => {
                   console.log(ele);
-                  console.log(checkboxStates[ele]);
+                  console.log(intolStates[ele]);
 
-                  setCheckboxStates({
-                    ...checkboxStates,
-                    [ele]: checkboxStates[ele] ? false : true,
+                  setIntolStates({
+                    ...intolStates,
+                    [ele]: intolStates[ele] ? false : true,
                   });
                 }}
               />
@@ -72,11 +72,11 @@ const Checkbox = ({ label, value, checkboxStates, setCheckboxStates }) => {
           checked={value}
           onChange={() => {
             console.log(label);
-            console.log(checkboxStates[label]);
+            console.log(intolStates[label]);
             // console.log(event.target.checked);
-            setCheckboxStates({
-              ...checkboxStates,
-              [label]: checkboxStates[label] ? false : true,
+            setIntolStates({
+              ...intolStates,
+              [label]: intolStates[label] ? false : true,
             });
           }}
         />

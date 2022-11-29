@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Switch({ toggle, setToggle }) {
   const toggleClass = " transform translate-x-5";
   return (

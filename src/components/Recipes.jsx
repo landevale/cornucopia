@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { Routes, Route, Link, Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
 
 function Recipes({ randomRecipe }) {
   const displayRecipe = Array.from(randomRecipe);
