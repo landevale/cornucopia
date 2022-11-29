@@ -10,8 +10,8 @@ import ErrorPage from "./components/ErrorPage";
 // import Homepage from "./pages/Homepage";
 
 function App() {
-  const API_KEY = "1222da339511442a833d2dcfd482ca15";
-  // const API_KEY = "ea8e44bfe231454b9aa2cccc475fbd2f";
+  // const API_KEY = "1222da339511442a833d2dcfd482ca15";
+  const API_KEY = "ea8e44bfe231454b9aa2cccc475fbd2f";
 
   const intolerancesCheckboxes = {
     dairy: false,
@@ -104,12 +104,13 @@ function App() {
     if (event.target.elements.name.value) {
       console.log(event.target.elements.name.value);
 
-      const recipeSrc = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&ingredients=${event.target.elements.name.value}&ignorePantry=true&ranking=1&number=3`;
+      // const recipeSrc = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&ingredients=${event.target.elements.name.value}&ignorePantry=true&ranking=1&number=3`;
+      const recipeSrc = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${event.target.elements.name.value}&intolerances=${intolerancesStr}&ignorePantry=true&sort=random&number=3`;
       const response = await fetch(recipeSrc);
       const data = await response.json();
-      console.log(data);
+      console.log(data.results);
 
-      setRandomRecipe(data);
+      setRandomRecipe(data.results);
     } else {
       const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=1`;
       const response = await fetch(recipeSrc);
