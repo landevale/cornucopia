@@ -13,7 +13,7 @@ function Recipes({ randomRecipe }) {
   if (displayRecipe.length === 0) {
     return (
       <>
-        <main className="px-5 mt-28">
+        <main className="px-5 mt-28 sm:mt-10">
           <h2 className="font-neohellenic text-3xl">No recipes found.</h2>
           <p>Hang on, we are cooking up something! Check back again!</p>
           <img className="w-fit h-fit" src={vegetablesPot} />
