@@ -3,7 +3,7 @@ export const cuisineCheckboxes = {
   american: false,
   british: false,
   //   cajun: false,
-  carribean: false,
+  //   carribean: false,
   chinese: false,
   //   easterneuropean: false,
   european: false,

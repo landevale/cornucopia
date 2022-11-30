@@ -84,7 +84,7 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (event.target.elements.name.value) {
+    if (event.target.elements.name.value || intolerancesStr || cuisineStr) {
       console.log(event.target.elements.name.value);
 
       // const recipeSrc = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&ingredients=${event.target.elements.name.value}&ignorePantry=true&ranking=1&number=3`;
