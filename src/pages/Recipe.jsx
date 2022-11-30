@@ -16,7 +16,7 @@ function Recipe({ favs, addFav, delFav, API_KEY }) {
 
   const [recipe, setRecipe] = useState({});
   const { code } = useParams();
-  // const navigate = useNavigate();
+
   const [status, setStatus] = useState("Idle");
   const recipeSection = useRef(null);
 
@@ -122,7 +122,7 @@ function Recipe({ favs, addFav, delFav, API_KEY }) {
             <div className="inline-flex m-3">
               <Switch toggle={toggle} setToggle={setToggle} />
               {"            "}
-              Click to Toggle US/Metric units
+              <p className="px-2"></p>Click to Toggle US/Metric units
             </div>
             {/* Ingredient display toggle US : Metric */}
             {toggle === true ? usUnit : metricUnit}

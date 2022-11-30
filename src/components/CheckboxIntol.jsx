@@ -18,13 +18,13 @@ const CheckboxIntol = ({ intolStates, setIntolStates }) => {
       <div className="flex-none p-2 absolute z-20">
         <button
           onClick={showDropdownOptions}
-          className="flex flex-row justify-between w-48 px-2 py-2 text-gray-700 bg-white border-2 border-white rounded-md shadow focus:outline-none focus:border-teal-500"
+          className="flex flex-row justify-between w-48 px-2 py-2 text-gray-700 bg-white border-2 border-white rounded-md shadow focus:outline-none focus:border-teal-500 hover:text-white"
         >
           <span className="select-none">Intolerances</span>
 
           <svg
             id="arrow-down-intol"
-            className="hidden w-6 h-6 stroke-current"
+            className="w-6 h-6 stroke-current"
             viewBox="0 0 20 20"
           >
             <path
@@ -35,7 +35,7 @@ const CheckboxIntol = ({ intolStates, setIntolStates }) => {
           </svg>
           <svg
             id="arrow-up-intol"
-            className="w-6 h-6 stroke-current"
+            className="hidden w-6 h-6 stroke-current"
             viewBox="0 0 20 20"
           >
             <path
