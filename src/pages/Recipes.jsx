@@ -1,9 +1,14 @@
-import { useState, useEffect, useRef } from "react";
-import { Routes, Route, Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function Recipes({ randomRecipe }) {
+  Recipes.propTypes = {
+    randomRecipe: PropTypes.object,
+  };
+
   const displayRecipe = Array.from(randomRecipe);
   console.log(displayRecipe);
+
   return (
     <>
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 mt-14">

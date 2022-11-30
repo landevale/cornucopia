@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import PropTypes from "prop-types";
 
 function Favorites({ favs, delFav }) {
+  Favorites.propTypes = {
+    favs: PropTypes.object,
+    delFav: PropTypes.func,
+  };
+
   if (favs.length === 0) {
     return (
       <>

@@ -4,8 +4,16 @@ import Navbar from "../components/Navbar";
 import servings from "../assets/servings.png";
 import timeLeft from "../assets/time-left.png";
 import Switch from "../components/Switch";
+import PropTypes from "prop-types";
 
 function Recipe({ favs, addFav, delFav, API_KEY }) {
+  Recipe.propTypes = {
+    favs: PropTypes.object,
+    addFav: PropTypes.func,
+    delFav: PropTypes.func,
+    API_KEY: PropTypes.string,
+  };
+
   const [recipe, setRecipe] = useState({});
   const { code } = useParams();
   // const navigate = useNavigate();

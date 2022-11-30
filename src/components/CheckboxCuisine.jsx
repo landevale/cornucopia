@@ -1,4 +1,11 @@
+import PropTypes from "prop-types";
+
 const CheckboxCuisine = ({ cuiStates, setCuiStates }) => {
+  CheckboxCuisine.propTypes = {
+    cuiStates: PropTypes.object,
+    setCuiStates: PropTypes.func,
+  };
+
   const showDropdownOptions = (event) => {
     event.preventDefault();
     document.getElementById("options-cui").classList.toggle("hidden");

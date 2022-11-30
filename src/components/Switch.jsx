@@ -1,4 +1,11 @@
+import PropTypes from "prop-types";
+
 function Switch({ toggle, setToggle }) {
+  Switch.propTypes = {
+    toggle: PropTypes.bool,
+    setToggle: PropTypes.func,
+  };
+
   const toggleClass = " transform translate-x-5";
   return (
     <>

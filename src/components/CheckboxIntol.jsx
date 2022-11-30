@@ -1,4 +1,11 @@
-const CheckboxIntol = ({ label, value, intolStates, setIntolStates }) => {
+import PropTypes from "prop-types";
+
+const CheckboxIntol = ({ intolStates, setIntolStates }) => {
+  CheckboxIntol.propTypes = {
+    intolStates: PropTypes.object,
+    setIntolStates: PropTypes.func,
+  };
+
   const showDropdownOptions = (event) => {
     event.preventDefault();
     document.getElementById("options").classList.toggle("hidden");
@@ -65,23 +72,6 @@ const CheckboxIntol = ({ label, value, intolStates, setIntolStates }) => {
           ))}
         </div>
       </div>
-
-      {/* <label>
-        <input
-          type="checkbox"
-          checked={value}
-          onChange={() => {
-            console.log(label);
-            console.log(intolStates[label]);
-            // console.log(event.target.checked);
-            setIntolStates({
-              ...intolStates,
-              [label]: intolStates[label] ? false : true,
-            });
-          }}
-        />
-        <span>{label}</span>
-      </label> */}
     </>
   );
 };

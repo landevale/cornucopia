@@ -1,8 +1,9 @@
-import { useState, useEffect, useRef } from "react";
-import { Routes, Route, Link, Outlet, useSearchParams } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+// import { Routes, Route, Link, Outlet, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import CheckboxIntol from "../components/CheckboxIntol";
 import CheckboxCuisine from "../components/CheckboxCuisine";
+import PropTypes from "prop-types";
 
 function Form({
   handleSubmit,
@@ -11,6 +12,14 @@ function Form({
   cuiStates,
   setCuiStates,
 }) {
+  Form.propTypes = {
+    handleSubmit: PropTypes.func,
+    intolStates: PropTypes.object,
+    setIntolStates: PropTypes.object,
+    cuiStates: PropTypes.object,
+    setCuiStates: PropTypes.object,
+  };
+
   return (
     <>
       <Navbar />
