@@ -6,26 +6,14 @@ import Recipes from "./components/Recipes";
 import Recipe from "./components/Recipe";
 import Favorites from "./components/Favorites";
 import ErrorPage from "./components/ErrorPage";
-// import Homepage from "./pages/Homepage";
+import { intolerancesCheckboxes } from "./data/intolerancesCheckboxes";
+import { cuisineCheckboxes } from "./data/cuisineCheckboxes";
 
 function App() {
   // const API_KEY = "1222da339511442a833d2dcfd482ca15";
-  const API_KEY = "ea8e44bfe231454b9aa2cccc475fbd2f";
+  // const API_KEY = "ea8e44bfe231454b9aa2cccc475fbd2f";
+  const API_KEY = "test";
 
-  const intolerancesCheckboxes = {
-    dairy: false,
-    peanut: false,
-    soy: false,
-    egg: false,
-    seafood: false,
-    sulfite: false,
-    gluten: false,
-    sesame: false,
-    treenut: false,
-    grain: false,
-    shellfish: false,
-    wheat: false,
-  };
   const [intolStates, setIntolStates] = useState(intolerancesCheckboxes);
   console.log(intolStates);
   const intolerancesResult = Object.keys(intolStates).filter(
@@ -34,35 +22,6 @@ function App() {
   console.log(intolerancesResult);
   const intolerancesStr = intolerancesResult.map((key) => `${key}`).join(", ");
   console.log(intolerancesStr);
-
-  const cuisineCheckboxes = {
-    african: false,
-    american: false,
-    british: false,
-    cajun: false,
-    carribean: false,
-    chinese: false,
-    easterneuropean: false,
-    european: false,
-    french: false,
-    german: false,
-    greek: false,
-    indian: false,
-    irish: false,
-    italian: false,
-    japanese: false,
-    jewish: false,
-    korean: false,
-    latinamerican: false,
-    mediterranean: false,
-    mexican: false,
-    middleeastern: false,
-    nordic: false,
-    southern: false,
-    spanish: false,
-    thai: false,
-    vietnamese: false,
-  };
 
   const [cuiStates, setCuiStates] = useState(cuisineCheckboxes);
   console.log(cuiStates);
@@ -99,11 +58,6 @@ function App() {
     setFavs(newFavs);
   };
 
-  //* 2 parameters
-  //* 1st - callback
-  //* 2nd - array of depencencies -> when dependecy change -> useEffect runs again
-  //* omit 2nd paramater -> useEffect runs all the time
-
   useEffect(() => {
     let controller = new AbortController();
     const signal = controller.signal;
@@ -134,7 +88,7 @@ function App() {
       console.log(event.target.elements.name.value);
 
       // const recipeSrc = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&ingredients=${event.target.elements.name.value}&ignorePantry=true&ranking=1&number=3`;
-      const recipeSrc = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${event.target.elements.name.value}&intolerances=${intolerancesStr}&cuisine=${cuisineStr}&ignorePantry=true&sort=random&number=3`;
+      const recipeSrc = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${event.target.elements.name.value}&intolerances=${intolerancesStr}&cuisine=${cuisineStr}&ignorePantry=true&sort=random&number=30`;
       const response = await fetch(recipeSrc);
       const data = await response.json();
       console.log(data.results);

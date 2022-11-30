@@ -22,7 +22,6 @@ function Recipe({ favs, addFav, delFav, API_KEY }) {
   const [toggle, setToggle] = useState(true);
 
   useEffect(() => {
-    // Async await, newer, more used methods
     const fetchRecipe = async () => {
       try {
         const recipeSrc = `https://api.spoonacular.com/recipes/${code}/information?apiKey=${API_KEY}&includeNutrition=false`;

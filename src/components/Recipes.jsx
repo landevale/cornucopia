@@ -7,7 +7,6 @@ function Recipes({ randomRecipe }) {
   return (
     <>
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 mt-14">
-        {/*  */}
         {displayRecipe.map((ele, i) => (
           <div
             key={i}
@@ -33,17 +32,6 @@ function Recipes({ randomRecipe }) {
             </div> */}
           </div>
         ))}
-
-        {/*  */}
-        {/* {displayRecipe.map((ele, i) => (
-        <div key={i}>
-          <h2>{ele.title}</h2>
-          <Link to={`/recipe/${ele.id}`}>
-            <img src={ele.image} />
-          </Link>
-          <br />
-        </div>
-      ))} */}
       </div>
     </>
   );

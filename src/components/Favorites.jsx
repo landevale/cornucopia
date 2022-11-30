@@ -22,7 +22,7 @@ function Favorites({ favs, delFav }) {
           <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
             {favs.map((ele, i) => (
               <div
-                key={i}
+                key={ele.id}
                 className="max-w-sm max-h-lg rounded overflow-hidden shadow-lg m-3 relative"
               >
                 <Link to={`/recipe/${ele.id}`}>
