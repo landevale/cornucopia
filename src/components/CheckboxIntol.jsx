@@ -8,7 +8,7 @@ const Checkbox = ({ label, value, intolStates, setIntolStates }) => {
 
   return (
     <>
-      <div className="flex-none p-2">
+      <div className="flex-none p-2 absolute">
         <button
           onClick={showDropdownOptions}
           className="flex flex-row justify-between w-48 px-2 py-2 text-gray-700 bg-white border-2 border-white rounded-md shadow focus:outline-none focus:border-teal-500"

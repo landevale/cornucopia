@@ -10,12 +10,7 @@ function Form({ handleSubmit, intolStates, setIntolStates }) {
 
       <main className="px-5">
         <div className="Form">
-          <form onSubmit={handleSubmit} className="w-full max-w-sm">
-            <Checkbox
-              intolStates={intolStates}
-              setIntolStates={setIntolStates}
-            />
-
+          <form onSubmit={handleSubmit} className="w-full max-w-sm relative">
             <div className="flex items-center border-b border-teal-500 py-2">
               <input
                 type="text"
@@ -29,6 +24,10 @@ function Form({ handleSubmit, intolStates, setIntolStates }) {
                 Search For Recipes
               </button>
             </div>
+            <Checkbox
+              intolStates={intolStates}
+              setIntolStates={setIntolStates}
+            />
           </form>
           <br />
           <Outlet />

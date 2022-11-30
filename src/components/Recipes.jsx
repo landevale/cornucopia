@@ -6,7 +6,7 @@ function Recipes({ randomRecipe }) {
   console.log(displayRecipe);
   return (
     <>
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 mt-14">
         {/*  */}
         {displayRecipe.map((ele, i) => (
           <div
