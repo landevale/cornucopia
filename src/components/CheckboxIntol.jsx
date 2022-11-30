@@ -8,14 +8,14 @@ const CheckboxIntol = ({ intolStates, setIntolStates }) => {
 
   const showDropdownOptions = (event) => {
     event.preventDefault();
-    document.getElementById("options").classList.toggle("hidden");
-    document.getElementById("arrow-up").classList.toggle("hidden");
-    document.getElementById("arrow-down").classList.toggle("hidden");
+    document.getElementById("options-intol").classList.toggle("hidden");
+    document.getElementById("arrow-up-intol").classList.toggle("hidden");
+    document.getElementById("arrow-down-intol").classList.toggle("hidden");
   };
 
   return (
     <>
-      <div className="flex-none p-2 absolute">
+      <div className="flex-none p-2 absolute z-20">
         <button
           onClick={showDropdownOptions}
           className="flex flex-row justify-between w-48 px-2 py-2 text-gray-700 bg-white border-2 border-white rounded-md shadow focus:outline-none focus:border-teal-500"
@@ -23,7 +23,7 @@ const CheckboxIntol = ({ intolStates, setIntolStates }) => {
           <span className="select-none">Intolerances</span>
 
           <svg
-            id="arrow-down"
+            id="arrow-down-intol"
             className="hidden w-6 h-6 stroke-current"
             viewBox="0 0 20 20"
           >
@@ -34,7 +34,7 @@ const CheckboxIntol = ({ intolStates, setIntolStates }) => {
             />
           </svg>
           <svg
-            id="arrow-up"
+            id="arrow-up-intol"
             className="w-6 h-6 stroke-current"
             viewBox="0 0 20 20"
           >
@@ -46,7 +46,7 @@ const CheckboxIntol = ({ intolStates, setIntolStates }) => {
           </svg>
         </button>
         <div
-          id="options"
+          id="options-intol"
           className="hidden w-48 py-2 mt-2 bg-white rounded-lg shadow-xl"
         >
           {Object.keys(intolStates).map((ele, i) => (

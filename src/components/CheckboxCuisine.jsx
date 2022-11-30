@@ -15,7 +15,7 @@ const CheckboxCuisine = ({ cuiStates, setCuiStates }) => {
 
   return (
     <>
-      <div className="flex-none p-2 absolute ml-60">
+      <div className="flex-none p-2 absolute z-10 ml-0 mt-14 sm:ml-52 sm:mt-0">
         <button
           onClick={showDropdownOptions}
           className="flex flex-row justify-between w-48 px-2 py-2 text-gray-700 bg-white border-2 border-white rounded-md shadow focus:outline-none focus:border-teal-500"

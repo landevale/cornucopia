@@ -46,14 +46,14 @@ function Recipe({ favs, addFav, delFav, API_KEY }) {
     fetchRecipe();
   }, [code, API_KEY]);
 
-  const usUnit = recipe?.extendedIngredients?.map((item) => (
-    <li key={Math.random()}>
+  const usUnit = recipe?.extendedIngredients?.map((item, i) => (
+    <li key={i}>
       {item?.amount} {item?.unit} - {item?.name}
     </li>
   ));
 
-  const metricUnit = recipe?.extendedIngredients?.map((item) => (
-    <li key={Math.random()}>
+  const metricUnit = recipe?.extendedIngredients?.map((item, i) => (
+    <li key={i}>
       {item?.measures.metric.amount} {item?.measures.metric.unitShort} -{" "}
       {item?.name}
     </li>
@@ -81,7 +81,7 @@ function Recipe({ favs, addFav, delFav, API_KEY }) {
             src={recipe.image}
             className="row-span-5 col-span-5 self-center"
           />
-          <h2 className="col-start-6 col-span-2 self-center p-3 max-w-xl">
+          <h2 className="col-start-6 col-span-2 self-center p-3 max-w-xl font-bold">
             {recipe.title}
           </h2>
 

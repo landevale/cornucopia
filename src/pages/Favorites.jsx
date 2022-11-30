@@ -23,7 +23,10 @@ function Favorites({ favs, delFav }) {
       <>
         <Navbar />
         <main className="px-5 space-y-4">
-          <h2 className="font-neohellenic text-3xl">Favorites</h2>
+          <h2 className="font-neohellenic text-3xl">
+            {" "}
+            {favs.length} Favorites
+          </h2>
 
           <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
             {favs.map((ele, i) => (
