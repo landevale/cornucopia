@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Form from "./components/Form";
-import Recipes from "./components/Recipes";
-import Recipe from "./components/Recipe";
-import Favorites from "./components/Favorites";
-import ErrorPage from "./components/ErrorPage";
+import Form from "./pages/Form";
+import Recipes from "./pages/Recipes";
+import Recipe from "./pages/Recipe";
+import Favorites from "./pages/Favorites";
+import ErrorPage from "./pages/ErrorPage";
 import { intolerancesCheckboxes } from "./data/intolerancesCheckboxes";
 import { cuisineCheckboxes } from "./data/cuisineCheckboxes";
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 
 function Favorites({ favs, delFav }) {
   if (favs.length === 0) {
@@ -7,7 +7,7 @@ function Favorites({ favs, delFav }) {
       <>
         <Navbar />
         <main className="px-5 ">
-          <h2>Favorites</h2>
+          <h2 className="font-neohellenic text-3xl">Favorites</h2>
           <p>No saved recipes</p>
         </main>
       </>
@@ -17,7 +17,7 @@ function Favorites({ favs, delFav }) {
       <>
         <Navbar />
         <main className="px-5 space-y-4">
-          <h2>Favorites</h2>
+          <h2 className="font-neohellenic text-3xl">Favorites</h2>
 
           <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
             {favs.map((ele, i) => (

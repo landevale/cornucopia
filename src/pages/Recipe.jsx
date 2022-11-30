@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import servings from "../assets/servings.png";
 import timeLeft from "../assets/time-left.png";
-import Switch from "./Switch";
+import Switch from "../components/Switch";
 
 function Recipe({ favs, addFav, delFav, API_KEY }) {
   const [recipe, setRecipe] = useState({});

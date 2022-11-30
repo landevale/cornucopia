@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Routes, Route, Link, Outlet, useSearchParams } from "react-router-dom";
-import Navbar from "./Navbar";
-import CheckboxIntol from "./CheckboxIntol";
-import CheckboxCuisine from "./CheckboxCuisine";
+import Navbar from "../components/Navbar";
+import CheckboxIntol from "../components/CheckboxIntol";
+import CheckboxCuisine from "../components/CheckboxCuisine";
 
 function Form({
   handleSubmit,
