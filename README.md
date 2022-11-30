@@ -62,4 +62,7 @@ List unsolved problems which would be fixed in future iterations.
 ## References
 
 [Scroll to Section](https://stackabuse.com/how-to-scroll-to-top-in-react-with-a-button-component/)
+
+[Toggle Switch](https://codesandbox.io/s/switch-component-with-tailwind-react-sbyxg?from-embed)
+
 [Dropdown](https://devdojo.com/tailwindcss/playground?component=dropdown-simple)
