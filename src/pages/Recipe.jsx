@@ -76,23 +76,22 @@ function Recipe({ favs, addFav, delFav, API_KEY }) {
     <>
       <Navbar />
       <main className="px-5 space-y-4">
-        <div className="container mx-auto grid grid-rows-9 grid-flow-col gap-3 rounded">
+        <div className="container mx-auto grid auto-cols-max grid-cols-1 sm:grid-cols-9 grid-rows-9 grid-flow-col gap-3 rounded">
           <img
             src={recipe.image}
-            className="row-span-5 col-span-5 self-center"
+            className="object-scale-down row-start-2 sm:object-fill sm:row-span-5 col-span-1 sm:col-span-5 self-center"
           />
-          <h2 className="col-start-6 col-span-2 self-center p-3 max-w-xl font-bold">
+          <div className="row-start-3 sm:row-start-6 sm:col-start-1 sm:col-span-2 container mx-auto">
+            <button onClick={scrollDown}>Jump to Recipe</button>
+          </div>
+          <h2 className="row-start-1 col-start-1 sm:col-start-6 col-span-1 sm:col-span-2 self-center p-3 max-w-xl font-bold">
             {recipe.title}
           </h2>
 
           <section
             dangerouslySetInnerHTML={{ __html: recipe.summary }}
-            className="row-span-2 col-span-2"
+            className="row-start-7 col-start-1 sm:row-span-2 sm:col-span-6"
           ></section>
-        </div>
-
-        <div className="container mx-auto">
-          <button onClick={scrollDown}>Jump to Recipe</button>
         </div>
 
         <div
@@ -103,19 +102,19 @@ function Recipe({ favs, addFav, delFav, API_KEY }) {
           <img
             src={timeLeft}
             style={{ maxWidth: "10%", height: "auto" }}
-            className="place-self-end"
+            className="sm:place-self-end"
           />
           <p>Ready in {recipe.readyInMinutes} minutes</p>
           <img
             src={servings}
             style={{ maxWidth: "10%", height: "auto" }}
-            className="place-self-end"
+            className="sm:place-self-end"
           />
           <p>{recipe.servings} Servings</p>
         </div>
 
         <div
-          className="container mx-auto grid gap-3 rounded"
+          className="container mx-auto grid gap-3 rounded overflow-hidden shadow-lg"
           ref={recipeSection}
         >
           <ul style={{ listStyleType: "none" }}>
