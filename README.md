@@ -1,76 +1,65 @@
-# Project 2
+# Cornucopia
 
-## Setup
+## Project Brief
 
-- Create vite react folder
-- Clear the unnecessary stuff
-- Create a repo in github
+- **Build a web application using vite**. Must be your own work.
+- **Use React framework** to build your application with _at least_
+  - 3 components
+  - 4 props
+  - 2 state properties
+  - 2 setState
+  - 2 routes
+- **Use 3rd party API and/or Firestore**
+  - API call with Axios and display the data for the user. You may use any API of your choosing.
+  - You may also opt to use Firebase/Firestore if you need to store data.
+- **Craft a `README.md` file that explains your app** to the world.
+- **Create wireframes** for your app and include it in your repo/readme.
 
-```git
-git init
-git add -A
-git commit -m 'First commit'
+## Description
 
-// copied from github
-git remote add origin git@github.com:XXX
-git branch -M main
-git push -u origin main
+Cornucopia is a recipe finder to assist in planning of meals.
+
+### Technical Used
+
+```
+- React
+- Tailwind CSS
+
 ```
 
-- Goto Vercel and create a new project
-- Deploy with a test fetch() -> check API is ok
+### Wireframes
 
-## Planning
+Created my initial wireframe on Miro. [Miro](https://miro.com/app/board/uXjVPAsqwMo=/?share_link_id=933854636951)
 
-- User stories / journey
-  - Able to search for cards
-  - See all cards in a set
-  - Fav some cards
-- Wireframe
-  - SearchPage -> /
-  - SetPage -> /sets/:code
-  - FavPage -> /favs
-- Mock the UI and use Component libraries
+### User Stories
 
-## Lifting State
+As a home cook, I want to find recipes, so that I can make use of ingredients in my fridge and explore different cultures through cuisine.
 
-Cards --> Favs (Child --> Sibling)
+---
 
-Find the closest common parent -> App
+## Planning and Development Process
 
-Shift the state from Cards to App -> pass addFav() prop -> Cards
+A basic story of your planning and developing this project.
 
-## Libraries
+### Problem-Solving Strategy
 
-### Insane
+What strategy did you use to solve your problems.
 
-- Jest
-- React Testing Library
+### Unsolved problems
 
-### Complex Libraries Pick One?
+List unsolved problems which would be fixed in future iterations.
 
-- Maps
-- Chart
-- Calendar
-- Component Toolkits
-- Typescript
-- Redux
-- D3
+## APIs Used
 
-### Medium
+[Spoonacular API](https://spoonacular.com/food-api)
 
-- tailwind
-- styled components
-- Date & time
+---
 
-### Small
+## Acknowledgments
 
-- lodash
-- debug
-- Axios
+---
 
-### Rejected
+## References
 
-- Data Fetching
-- Form
-- State management
+[Scroll to Section](https://stackabuse.com/how-to-scroll-to-top-in-react-with-a-button-component/)
+[Dropdown](https://devdojo.com/tailwindcss/playground?component=dropdown-simple)
