@@ -1,9 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { Routes, Route, Link, Outlet, useSearchParams } from "react-router-dom";
 import Navbar from "./Navbar";
-import Checkbox from "./CheckboxIntol";
+import CheckboxIntol from "./CheckboxIntol";
+import CheckboxCuisine from "./CheckboxCuisine";
 
-function Form({ handleSubmit, intolStates, setIntolStates }) {
+function Form({
+  handleSubmit,
+  intolStates,
+  setIntolStates,
+  cuiStates,
+  setCuiStates,
+}) {
   return (
     <>
       <Navbar />
@@ -24,9 +31,13 @@ function Form({ handleSubmit, intolStates, setIntolStates }) {
                 Search For Recipes
               </button>
             </div>
-            <Checkbox
+            <CheckboxIntol
               intolStates={intolStates}
               setIntolStates={setIntolStates}
+            />
+            <CheckboxCuisine
+              cuiStates={cuiStates}
+              setCuiStates={setCuiStates}
             />
           </form>
           <br />

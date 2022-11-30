@@ -35,6 +35,42 @@ function App() {
   const intolerancesStr = intolerancesResult.map((key) => `${key}`).join(", ");
   console.log(intolerancesStr);
 
+  const cuisineCheckboxes = {
+    african: false,
+    american: false,
+    british: false,
+    cajun: false,
+    carribean: false,
+    chinese: false,
+    easterneuropean: false,
+    european: false,
+    french: false,
+    german: false,
+    greek: false,
+    indian: false,
+    irish: false,
+    italian: false,
+    japanese: false,
+    jewish: false,
+    korean: false,
+    latinamerican: false,
+    mediterranean: false,
+    mexican: false,
+    middleeastern: false,
+    nordic: false,
+    southern: false,
+    spanish: false,
+    thai: false,
+    vietnamese: false,
+  };
+
+  const [cuiStates, setCuiStates] = useState(cuisineCheckboxes);
+  console.log(cuiStates);
+  const cuisineResult = Object.keys(cuiStates).filter((k) => cuiStates[k]);
+  console.log(cuisineResult);
+  const cuisineStr = cuisineResult.map((key) => `${key}`).join(", ");
+  console.log(cuisineStr);
+
   const [randomRecipe, setRandomRecipe] = useState("");
 
   const [favs, setFavs] = useState([]);
@@ -98,7 +134,7 @@ function App() {
       console.log(event.target.elements.name.value);
 
       // const recipeSrc = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&ingredients=${event.target.elements.name.value}&ignorePantry=true&ranking=1&number=3`;
-      const recipeSrc = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${event.target.elements.name.value}&intolerances=${intolerancesStr}&ignorePantry=true&sort=random&number=3`;
+      const recipeSrc = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${event.target.elements.name.value}&intolerances=${intolerancesStr}&cuisine=${cuisineStr}&ignorePantry=true&sort=random&number=3`;
       const response = await fetch(recipeSrc);
       const data = await response.json();
       console.log(data.results);
@@ -133,6 +169,8 @@ function App() {
                   handleSubmit={handleSubmit}
                   intolStates={intolStates}
                   setIntolStates={setIntolStates}
+                  cuiStates={cuiStates}
+                  setCuiStates={setCuiStates}
                 />
               }
             >

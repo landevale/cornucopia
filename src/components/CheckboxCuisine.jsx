@@ -1,22 +1,22 @@
-const CheckboxIntol = ({ label, value, intolStates, setIntolStates }) => {
+const CheckboxCuisine = ({ cuiStates, setCuiStates }) => {
   const showDropdownOptions = (event) => {
     event.preventDefault();
-    document.getElementById("options").classList.toggle("hidden");
-    document.getElementById("arrow-up").classList.toggle("hidden");
-    document.getElementById("arrow-down").classList.toggle("hidden");
+    document.getElementById("options-cui").classList.toggle("hidden");
+    document.getElementById("arrow-up-cui").classList.toggle("hidden");
+    document.getElementById("arrow-down-cui").classList.toggle("hidden");
   };
 
   return (
     <>
-      <div className="flex-none p-2 absolute">
+      <div className="flex-none p-2 absolute ml-60">
         <button
           onClick={showDropdownOptions}
           className="flex flex-row justify-between w-48 px-2 py-2 text-gray-700 bg-white border-2 border-white rounded-md shadow focus:outline-none focus:border-teal-500"
         >
-          <span className="select-none">Intolerances</span>
+          <span className="select-none">Cuisine</span>
 
           <svg
-            id="arrow-down"
+            id="arrow-down-cui"
             className="hidden w-6 h-6 stroke-current"
             viewBox="0 0 20 20"
           >
@@ -27,7 +27,7 @@ const CheckboxIntol = ({ label, value, intolStates, setIntolStates }) => {
             />
           </svg>
           <svg
-            id="arrow-up"
+            id="arrow-up-cui"
             className="w-6 h-6 stroke-current"
             viewBox="0 0 20 20"
           >
@@ -39,24 +39,24 @@ const CheckboxIntol = ({ label, value, intolStates, setIntolStates }) => {
           </svg>
         </button>
         <div
-          id="options"
+          id="options-cui"
           className="hidden w-48 py-2 mt-2 bg-white rounded-lg shadow-xl"
         >
-          {Object.keys(intolStates).map((ele, i) => (
+          {Object.keys(cuiStates).map((ele, i) => (
             <label
               key={i}
               className="block px-4 py-2 text-gray-800 hover:bg-teal-500 hover:text-white"
             >
               <input
                 type="checkbox"
-                checked={intolStates.ele}
+                checked={cuiStates.ele}
                 onChange={() => {
                   console.log(ele);
-                  console.log(intolStates[ele]);
+                  console.log(cuiStates[ele]);
 
-                  setIntolStates({
-                    ...intolStates,
-                    [ele]: intolStates[ele] ? false : true,
+                  setCuiStates({
+                    ...cuiStates,
+                    [ele]: cuiStates[ele] ? false : true,
                   });
                 }}
               />
@@ -65,25 +65,8 @@ const CheckboxIntol = ({ label, value, intolStates, setIntolStates }) => {
           ))}
         </div>
       </div>
-
-      {/* <label>
-        <input
-          type="checkbox"
-          checked={value}
-          onChange={() => {
-            console.log(label);
-            console.log(intolStates[label]);
-            // console.log(event.target.checked);
-            setIntolStates({
-              ...intolStates,
-              [label]: intolStates[label] ? false : true,
-            });
-          }}
-        />
-        <span>{label}</span>
-      </label> */}
     </>
   );
 };
 
-export default CheckboxIntol;
+export default CheckboxCuisine;
