@@ -34,17 +34,21 @@ function Favorites({ favs, delFav }) {
                 key={ele.id}
                 className="max-w-sm max-h-lg rounded overflow-hidden shadow-lg m-3 relative"
               >
-                <Link to={`/favorite/${ele.id}`}>
+                <Link
+                  to={`/favorite/${ele.id}`}
+                  key={i}
+                  className="hover:opacity-80"
+                >
                   <img
                     className="w-fit h-fit"
                     src={ele.image}
                     alt={ele.title}
                   />
-                </Link>
 
-                <div className="px-6 py-4">
-                  <div className="font-bold text-xl mb-2">{ele.title}</div>
-                </div>
+                  <div className="px-6 py-4">
+                    <div className="font-bold text-xl mb-2">{ele.title}</div>
+                  </div>
+                </Link>
                 <div className="px-6 pt-4 pb-2"></div>
                 <div className="absolute bottom-0 right-0">
                   <button onClick={() => delFav(i)} className="h-10">

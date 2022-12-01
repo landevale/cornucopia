@@ -11,9 +11,8 @@ import { intolerancesCheckboxes } from "./data/intolerancesCheckboxes";
 import { cuisineCheckboxes } from "./data/cuisineCheckboxes";
 
 function App() {
-  // const API_KEY = "1222da339511442a833d2dcfd482ca15";
-  const API_KEY = "ea8e44bfe231454b9aa2cccc475fbd2f";
-  // const API_KEY = "test";
+  const API_KEY = import.meta.env.VITE_API_KEY;
+  const API_KEY2 = import.meta.env.VITE_API_KEY2;
 
   const [intolStates, setIntolStates] = useState(intolerancesCheckboxes);
   console.log(intolStates);

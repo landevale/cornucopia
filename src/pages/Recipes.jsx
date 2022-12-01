@@ -29,13 +29,19 @@ function Recipes({ randomRecipe }) {
               key={ele.id}
               className="max-w-sm max-h-sm rounded overflow-hidden shadow-lg m-3 inline-grid"
             >
-              <Link to={`/recipe/${ele.id}`} key={i}>
+              <Link
+                to={`/recipe/${ele.id}`}
+                key={i}
+                className="hover:opacity-80"
+              >
                 <img className="w-fit h-fit" src={ele.image} alt={ele.title} />
-              </Link>
 
-              <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{ele.title}</div>
-              </div>
+                <div className="px-6 py-4">
+                  <div className="font-bold text-xl mb-2">
+                    <p>{ele.title}</p>
+                  </div>
+                </div>
+              </Link>
             </div>
           ))}
         </div>

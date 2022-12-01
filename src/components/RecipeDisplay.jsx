@@ -47,7 +47,7 @@ function RecipeDisplay({ recipe, handleFav, inFavs, status }) {
           <img
             src={recipe?.image}
             alt={recipe?.title}
-            className="object-scale-down row-start-2 sm:object-fill sm:row-span-5 col-span-1 sm:col-span-5 self-center"
+            className="object-scale-down row-start-2 sm:object-fill sm:row-span-5 col-span-1 sm:col-span-5 self-center rounded-md"
           />
           <div className="row-start-3 sm:row-start-6 sm:col-start-1 sm:col-span-2 container mx-auto">
             <button onClick={scrollDown}>Jump to Recipe</button>
