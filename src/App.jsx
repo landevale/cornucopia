@@ -12,7 +12,7 @@ import { cuisineCheckboxes } from "./data/cuisineCheckboxes";
 
 function App() {
   const API_KEY = import.meta.env.VITE_API_KEY;
-  const API_KEY2 = import.meta.env.VITE_API_KEY2;
+  // const API_KEY = import.meta.env.VITE_API_KEY2;
 
   const [intolStates, setIntolStates] = useState(intolerancesCheckboxes);
   console.log(intolStates);
