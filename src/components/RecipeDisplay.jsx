@@ -88,9 +88,10 @@ function RecipeDisplay({ recipe, handleFav, inFavs, status }) {
           <ul style={{ listStyleType: "none" }}>
             <h4>Ingredients:</h4>
             <div className="inline-flex m-3">
+              <p className="px-2">US</p>
               <Switch toggle={toggle} setToggle={setToggle} />
               {"            "}
-              <p className="px-2"></p>Click to Toggle US/Metric units
+              <p className="px-2">Metric</p>
             </div>
             {/* Ingredient display toggle US : Metric */}
             {toggle === true ? usUnit : metricUnit}
@@ -108,9 +109,10 @@ function RecipeDisplay({ recipe, handleFav, inFavs, status }) {
           )}
           {status === "error" ? "Error" : null}
         </div>
-        <div className="container mx-auto">
+        <div className="container mx-auto mb-3">
           <button onClick={handleFav(recipe)}>{buttonText}</button>
         </div>
+        <div></div>
       </main>
     </>
   );

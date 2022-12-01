@@ -41,15 +41,30 @@ As a home cook, I want to find recipes, so that I can make use of ingredients in
 
 A basic story of your planning and developing this project.
 
+1. Set Up project on Vite, Gitup Repo & deployed on Vercel
+2. Indentified & tested the API
+3. Created basic Wireframe
+4. Mapped API content
+5. Created a form to search API for recipes
+6. Added Comps & Pages (Navbar, Recipe, Error)
+7. Added Tailwind CSS
+8. Added Favorites and buttons
+9. Added Localstorage
+10. Added checkbox for search (Intolerances & Cuisine)
+11. Test and adjust for small media
+12. Refactor and restructure comps & pages
+
 ### Problem-Solving Strategy
 
-What strategy did you use to solve your problems.
+Started by deciding on the issue at hand, and how to utilise the API. By first creating the wireframe, could visualise the structure, components and pages I required.
+
+Focused on identifying which features to add, and tried to break it down to smaller problems to solve. Mostly aimed to have a working code before tidying up.
+
+Progressively improved the exisiting features or added more.
 
 ### Unsolved problems
 
-List unsolved problems which would be fixed in future iterations.
-
-- Update multiple selection using Semantic UI for better visual.
+- Update multiple selection using Semantic UI for better visual
 
 ## APIs Used
 

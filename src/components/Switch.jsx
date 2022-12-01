@@ -6,7 +6,7 @@ function Switch({ toggle, setToggle }) {
     setToggle: PropTypes.func,
   };
 
-  const toggleClass = " transform translate-x-5";
+  const toggleClass = " transform translate-x-6";
   return (
     <>
       {/*   Switch Container */}
