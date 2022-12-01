@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function Favorites({ favs, delFav }) {
   Favorites.propTypes = {
-    favs: PropTypes.object,
+    favs: PropTypes.array,
     delFav: PropTypes.func,
   };
 

@@ -47,7 +47,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // storing input favs
     localStorage.setItem("favs", JSON.stringify(favs));
   }, [favs]);
 

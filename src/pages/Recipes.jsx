@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 
 function Recipes({ randomRecipe }) {
   Recipes.propTypes = {
-    randomRecipe: PropTypes.object,
+    randomRecipe: PropTypes.array,
   };
 
   const displayRecipe = Array.from(randomRecipe);
-  console.log(displayRecipe);
+  // console.log(displayRecipe);
 
   if (displayRecipe.length === 0) {
     return (

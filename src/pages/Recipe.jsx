@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 
 function Recipe({ favs, addFav, delFav, API_KEY }) {
   Recipe.propTypes = {
-    favs: PropTypes.object,
+    favs: PropTypes.array,
     addFav: PropTypes.func,
     delFav: PropTypes.func,
     API_KEY: PropTypes.string,

@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 // import { Routes, Route, Link, Outlet, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { intolerancesCheckboxes } from "../data/intolerancesCheckboxes";
+import { cuisineCheckboxes } from "../data/cuisineCheckboxes";
 import CheckboxIntol from "../components/CheckboxIntol";
 import CheckboxCuisine from "../components/CheckboxCuisine";
 import PropTypes from "prop-types";
@@ -15,10 +18,16 @@ function Form({
   Form.propTypes = {
     handleSubmit: PropTypes.func,
     intolStates: PropTypes.object,
-    setIntolStates: PropTypes.object,
+    setIntolStates: PropTypes.func,
     cuiStates: PropTypes.object,
-    setCuiStates: PropTypes.object,
+    setCuiStates: PropTypes.func,
   };
+
+  useEffect(() => {
+    setIntolStates(intolerancesCheckboxes);
+    setCuiStates(cuisineCheckboxes);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

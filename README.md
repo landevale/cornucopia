@@ -49,6 +49,8 @@ What strategy did you use to solve your problems.
 
 List unsolved problems which would be fixed in future iterations.
 
+- Update multiple selection using Semantic UI for better visual.
+
 ## APIs Used
 
 [Spoonacular API](https://spoonacular.com/food-api)
@@ -66,3 +68,5 @@ List unsolved problems which would be fixed in future iterations.
 [Toggle Switch](https://codesandbox.io/s/switch-component-with-tailwind-react-sbyxg?from-embed)
 
 [Dropdown](https://devdojo.com/tailwindcss/playground?component=dropdown-simple)
+
+[Localstorage](https://blog.logrocket.com/using-localstorage-react-hooks/)
