@@ -62,18 +62,11 @@ function App() {
     let controller = new AbortController();
     const signal = controller.signal;
     const fetchRandomReceipe = async () => {
-      const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=1`;
+      const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=30`;
       const response = await fetch(recipeSrc, { signal });
       const data = await response.json();
 
-      setRandomRecipe([
-        {
-          id: `${data?.recipes[0].id}`,
-          title: `${data?.recipes[0].title}`,
-          image: `${data?.recipes[0].image}`,
-          summary: `${data?.recipes[0].summary}`,
-        },
-      ]);
+      setRandomRecipe(data.recipes);
     };
     fetchRandomReceipe();
     return () => {
@@ -95,19 +88,11 @@ function App() {
 
       setRandomRecipe(data.results);
     } else {
-      const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=1`;
+      const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=30`;
       const response = await fetch(recipeSrc);
       const data = await response.json();
 
-      setRandomRecipe([
-        {
-          id: `${data?.recipes[0].id}`,
-          title: `${data?.recipes[0].title}`,
-
-          image: `${data?.recipes[0].image}`,
-          summary: `${data?.recipes[0].summary}`,
-        },
-      ]);
+      setRandomRecipe(data.recipes);
     }
   };
 
