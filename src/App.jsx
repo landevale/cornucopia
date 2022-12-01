@@ -30,7 +30,7 @@ function App() {
   const cuisineStr = cuisineResult.map((key) => `${key}`).join(", ");
   console.log(cuisineStr);
 
-  const [randomRecipe, setRandomRecipe] = useState("");
+  const [displayRecipe, setDisplayRecipe] = useState([]);
 
   const [favs, setFavs] = useState([]);
 
@@ -65,7 +65,7 @@ function App() {
       const response = await fetch(recipeSrc, { signal });
       const data = await response.json();
 
-      setRandomRecipe(data.recipes);
+      setDisplayRecipe(data.recipes);
     };
     fetchRandomReceipe();
     return () => {
@@ -86,13 +86,13 @@ function App() {
       const data = await response.json();
       console.log(data.results);
 
-      setRandomRecipe(data.results);
+      setDisplayRecipe(data.results);
     } else {
       const recipeSrc = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=30`;
       const response = await fetch(recipeSrc);
       const data = await response.json();
 
-      setRandomRecipe(data.recipes);
+      setDisplayRecipe(data.recipes);
     }
   };
 
@@ -113,7 +113,10 @@ function App() {
                 />
               }
             >
-              <Route index element={<Recipes randomRecipe={randomRecipe} />} />
+              <Route
+                index
+                element={<Recipes displayRecipe={displayRecipe} />}
+              />
             </Route>
 
             <Route

@@ -2,15 +2,14 @@ import { Link } from "react-router-dom";
 import vegetablesPot from "../assets/vegetables-pot.png";
 import PropTypes from "prop-types";
 
-function Recipes({ randomRecipe }) {
+function Recipes({ displayRecipe }) {
   Recipes.propTypes = {
-    randomRecipe: PropTypes.array,
+    displayRecipe: PropTypes.array,
   };
 
-  const displayRecipe = Array.from(randomRecipe);
-  // console.log(displayRecipe);
+  console.log(displayRecipe);
 
-  if (displayRecipe.length === 0) {
+  if (displayRecipe?.length === 0 || displayRecipe?.length === undefined) {
     return (
       <>
         <main className="px-5 mt-28 sm:mt-10">
