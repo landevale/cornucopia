@@ -5,6 +5,7 @@ import Form from "./pages/Form";
 import Recipes from "./pages/Recipes";
 import Recipe from "./pages/Recipe";
 import Favorites from "./pages/Favorites";
+import Favorite from "./pages/Favourite";
 import ErrorPage from "./pages/ErrorPage";
 import { intolerancesCheckboxes } from "./data/intolerancesCheckboxes";
 import { cuisineCheckboxes } from "./data/cuisineCheckboxes";
@@ -146,6 +147,11 @@ function App() {
               path="/favorites"
               element={<Favorites favs={favs} delFav={delFav} />}
             />
+            <Route
+              path="/favorite/:code"
+              element={<Favorite favs={favs} addFav={addFav} delFav={delFav} />}
+            />
+
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>

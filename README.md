@@ -29,7 +29,7 @@ Cornucopia is a recipe finder to assist in planning of meals.
 
 ### Wireframes
 
-Created my initial wireframe on Miro. [Miro](https://miro.com/app/board/uXjVPAsqwMo=/?share_link_id=933854636951)
+Created my initial wireframe on [Miro](https://miro.com/app/board/uXjVPAsqwMo=/?share_link_id=933854636951).
 
 ### User Stories
 

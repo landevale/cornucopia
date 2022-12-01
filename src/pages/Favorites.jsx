@@ -34,7 +34,7 @@ function Favorites({ favs, delFav }) {
                 key={ele.id}
                 className="max-w-sm max-h-lg rounded overflow-hidden shadow-lg m-3 relative"
               >
-                <Link to={`/recipe/${ele.id}`}>
+                <Link to={`/favorite/${ele.id}`}>
                   <img
                     className="w-fit h-fit"
                     src={ele.image}
