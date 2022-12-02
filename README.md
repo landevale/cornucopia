@@ -65,6 +65,7 @@ Progressively improved the exisiting features or added more.
 ### Unsolved problems
 
 - Update multiple selection using Semantic UI for better visual
+- Use useSearchParams to be able to share searches
 
 ## APIs Used
 
