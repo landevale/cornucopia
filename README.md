@@ -66,6 +66,8 @@ Progressively improved the exisiting features or added more.
 
 - Update multiple selection using Semantic UI for better visual
 - Use useSearchParams to be able to share searches
+- Add dietary info icons
+- If no favourites, a button or prompt to search
 
 ## APIs Used
 
