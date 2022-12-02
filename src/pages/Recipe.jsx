@@ -35,7 +35,6 @@ function Recipe({ favs, addFav, delFav, API_KEY }) {
   }, [code, API_KEY]);
 
   const inFavs = favs.findIndex((fav) => recipe.id === fav.id) === -1;
-  console.log(inFavs);
 
   const handleFav = (recipe) => () => {
     if (inFavs) {

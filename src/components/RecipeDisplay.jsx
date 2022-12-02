@@ -12,8 +12,6 @@ function RecipeDisplay({ recipe, handleFav, inFavs, status }) {
     status: PropTypes.string,
   };
 
-  console.log(recipe);
-
   const recipeSection = useRef(null);
 
   const scrollDown = () => {

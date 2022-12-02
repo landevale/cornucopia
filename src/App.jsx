@@ -15,20 +15,14 @@ function App() {
   // const API_KEY = import.meta.env.VITE_API_KEY2;
 
   const [intolStates, setIntolStates] = useState(intolerancesCheckboxes);
-  console.log(intolStates);
   const intolerancesResult = Object.keys(intolStates).filter(
     (k) => intolStates[k]
   );
-  console.log(intolerancesResult);
   const intolerancesStr = intolerancesResult.map((key) => `${key}`).join(", ");
-  console.log(intolerancesStr);
 
   const [cuiStates, setCuiStates] = useState(cuisineCheckboxes);
-  console.log(cuiStates);
   const cuisineResult = Object.keys(cuiStates).filter((k) => cuiStates[k]);
-  console.log(cuisineResult);
   const cuisineStr = cuisineResult.map((key) => `${key}`).join(", ");
-  console.log(cuisineStr);
 
   const [displayRecipe, setDisplayRecipe] = useState([]);
 
@@ -36,7 +30,6 @@ function App() {
 
   const addFav = (recipe) => {
     setFavs([...favs, recipe]);
-    console.log(favs);
   };
 
   useEffect(() => {
@@ -52,7 +45,6 @@ function App() {
 
   const delFav = (i) => {
     favs.splice(i, 1);
-    console.log(favs);
     const newFavs = [...favs];
     setFavs(newFavs);
   };

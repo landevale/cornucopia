@@ -13,8 +13,6 @@ function Favorite({ favs, addFav, delFav }) {
 
   const [recipe, setRecipe] = useState({});
   const { code } = useParams();
-  console.log(code);
-  console.log(favs[0]?.id);
   const favsIndex = favs.findIndex((fav) => code == fav.id);
 
   useEffect(
@@ -26,7 +24,6 @@ function Favorite({ favs, addFav, delFav }) {
   );
 
   const inFavs = favs.findIndex((fav) => recipe.id === fav.id) === -1;
-  console.log(inFavs);
 
   const handleFav = (recipe) => () => {
     if (inFavs) {
